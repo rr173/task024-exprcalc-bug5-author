@@ -161,7 +161,7 @@ func (n *binaryNode) eval(vars map[string]float64) (float64, error) {
 		if rv == 0 {
 			return 0, fmt.Errorf("%w: %g %% %g", ErrModuloByZero, lv, rv)
 		}
-		return checkFinite(math.Remainder(lv, rv))
+		return checkFinite(math.Mod(lv, rv))
 	case "^":
 		return powImpl(lv, rv)
 	case "==":
